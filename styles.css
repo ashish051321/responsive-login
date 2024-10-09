@@ -1,0 +1,61 @@
+/* Adjust header style */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+  border-right: none;
+}
+
+.search-bar button {
+  border-left: none;
+}
+
+/* Sidebar style */
+.sidebar {
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .nav-link {
+  font-size: 18px;
+  padding: 10px 20px;
+  color: #333;
+}
+
+.sidebar .nav-link.active {
+  background-color: #e6e6e6;
+  font-weight: bold;
+}
+
+.sidebar .nav-link i {
+  margin-right: 10px;
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Adjust grid margins */
+.container-fluid {
+  margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    display: none;
+  }
+
+  .container-fluid {
+    margin-top: 50px;
+  }
+}
+
+button.accordion-button:after {
+  visibility: hidden;
+}

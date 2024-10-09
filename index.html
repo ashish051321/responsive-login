@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReviseKarle Login</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Box-sizing for all elements */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      /* Reset body and html to prevent overflow */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+      }
+
+      /* Video container styling */
+      .video-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .video-container video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+        transform: translate(-50%, -50%);
+        background-size: cover;
+      }
+
+      /* Overlay for darkened effect */
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Dark overlay to make text readable */
+      }
+
+      /* Center the login card */
+      .login-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        max-width: 90%; /* Allow for responsiveness */
+        width: 400px; /* Base width for larger screens */
+      }
+
+      .login-card {
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 10px;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .btn-login {
+        margin: 0.5rem 0;
+        width: 100%;
+        font-size: 1.1rem;
+      }
+
+      /* Header and Footer Styling */
+      header {
+        position: relative;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        z-index: 3;
+      }
+
+      footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        text-align: center;
+        padding: 0.5rem;
+        z-index: 3;
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        .video-container {
+          height: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1>ReviseKarle</h1>
+    </header>
+
+    <!-- Video Background Section -->
+    <div class="video-container">
+      <video autoplay muted loop>
+        <!-- Mobile Video (480p) -->
+        <source
+          src="login-page-video-mobile.mp4"
+          type="video/mp4"
+          media="(max-width: 375px)"
+        />
+
+        <!-- Tablet Video (720p) -->
+        <source
+          src="login-page-video-tablet.mp4"
+          type="video/mp4"
+          media="(min-width: 376px) and (max-width: 992px)"
+        />
+
+        <!-- Desktop Video (1080p) -->
+        <source
+          src="login-page-video-desktop.mp4"
+          type="video/mp4"
+          media="(min-width: 993px)"
+        />
+
+        Your browser does not support HTML5 video.
+      </video>
+      <div class="overlay"></div>
+    </div>
+
+    <!-- Login Form Section -->
+    <div class="login-container">
+      <div class="login-card shadow">
+        <h3>Login to Continue</h3>
+        <p class="lead">Choose a method to log in</p>
+
+        <!-- Google Login Button -->
+        <a href="/auth/google" class="btn btn-danger btn-login">
+          <i class="fab fa-google"></i> Login with Google
+        </a>
+
+        <!-- GitHub Login Button -->
+        <a href="/auth/github" class="btn btn-dark btn-login">
+          <i class="fab fa-github"></i> Login with GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 ReviseKarle. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS, Font Awesome for Icons -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
