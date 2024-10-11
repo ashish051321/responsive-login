@@ -14,6 +14,22 @@
           animation: animated-rainbow-shadow 1s infinite;
 }
 
+
+/* For mobile devices (widths less than 768px) */
+@media (max-width: 768px) {
+       .site-title {
+          font-size: 10vh;
+        }
+}
+
+/* For very small screens (widths less than 480px) */
+@media (max-width: 150px) {
+       .site-title {
+          font-size: 7vh;
+        }
+
+}
+
 @-webkit-keyframes animated-rainbow-shadow {
   0% {
     text-shadow: 0px 0px transparent, 1px 1px #19F, 2px 2px #19F, 3px 3px #19F, 4px 4px #19F, 5px 5px #19F, 6px 6px #19F, 7px 7px #19F, 8px 8px #19F, 9px 9px #19F, 10px 10px #19F, 11px 11px #19F, 12px 12px #19F, 13px 13px #EA0, 14px 14px #EA0, 15px 15px #EA0, 16px 16px #EA0, 17px 17px #EA0, 18px 18px #EA0, 19px 19px #EA0, 20px 20px #EA0, 21px 21px #EA0, 22px 22px #EA0, 23px 23px #EA0, 24px 24px #EA0, 25px 25px #E62, 26px 26px #E62, 27px 27px #E62, 28px 28px #E62, 29px 29px #E62, 30px 30px #E62, 31px 31px #E62, 32px 32px #E62, 33px 33px #E62, 34px 34px #E62, 35px 35px #E62, 36px 36px #E62, 37px 37px #E62, 38px 38px #C25, 39px 39px #C25, 40px 40px #C25, 41px 41px #C25, 42px 42px #C25, 43px 43px #C25, 44px 44px #C25, 45px 45px #C25, 46px 46px #C25, 47px 47px #C25, 48px 48px #C25, 49px 49px #C25, 50px 50px #19F;
