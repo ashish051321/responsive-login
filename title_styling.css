@@ -23,7 +23,7 @@
 }
 
 /* For very small screens (widths less than 480px) */
-@media (max-width: 150px) {
+@media (max-width: 480px) {
        .site-title {
           font-size: 7vh;
         }
