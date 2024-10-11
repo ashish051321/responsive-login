@@ -1,156 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ReviseKarle Login</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      /* Box-sizing for all elements */
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReviseKarle Login</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Box-sizing for all elements */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    /* Reset body and html to prevent overflow */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+	  overflow-y: hidden; /* Prevent horizontal scroll */
+	  user-select: none;
+	  /*background: linear-gradient(45deg, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);*/
+    }
 
-      /* Reset body and html to prevent overflow */
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        overflow-x: hidden; /* Prevent horizontal scroll */
-      }
+    /* Video container styling */
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-      /* Video container styling */
+    .video-container video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+      background-size: cover;
+    }
+
+    /* Overlay for darkened effect */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Center the login card */
+    .login-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      max-width: 90%;
+      width: 400px;
+    }
+
+    .login-card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .btn-login {
+      margin: 0.5rem 0;
+      width: 100%;
+      font-size: 1.1rem;
+    }
+
+    /* Footer Styling */
+
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-align: center;
+      padding: 0.5rem;
+      z-index: 3;
+    }
+
+    /* Blog Cards Styling */
+    .blog-cards-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* Prevent interaction with the cards */
+      z-index: 1; /* Send to back */
+    }
+
+ @keyframes float {
+  0% {
+    transform: translateY(100vh); /* Start from below the visible screen */
+  }
+  100% {
+    transform: translateY(-80px); /* End above the card's original position */
+  }
+}
+
+.blog-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  pointer-events: auto;
+  position: absolute; /* Positioning cards absolutely */
+  width: 350px;
+  height: 80px;
+  animation: float 10s infinite ease-in-out; /* Smooth, slow-motion animation */
+}
+
+/* Randomize starting positions for each card */
+.blog-card:nth-child(1) {
+  top: 80%;
+  left: 5%;
+  animation-delay: 0s; /* No delay */
+}
+
+.blog-card:nth-child(2) {
+  top: 85%;
+  left: 25%;
+  animation-delay: 1s; /* Delay to stagger animation */
+}
+
+.blog-card:nth-child(3) {
+  top: 75%;
+  left: 45%;
+  animation-delay: 2s;
+}
+
+.blog-card:nth-child(4) {
+  top: 90%;
+  left: 65%;
+  animation-delay: 3s;
+}
+
+.blog-card:nth-child(5) {
+  top: 80%;
+  left: 85%;
+  animation-delay: 4s;
+}
+
+.blog-card:nth-child(6) {
+  top: 85%;
+  left: 15%;
+  animation-delay: 2.5s;
+}
+
+.blog-card:nth-child(7) {
+  top: 75%;
+  left: 35%;
+  animation-delay: 1.5s;
+}
+
+.blog-card:nth-child(8) {
+  top: 90%;
+  left: 55%;
+  animation-delay: 3.5s;
+}
+
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
       .video-container {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-      }
-
-      .video-container video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -1;
-        transform: translate(-50%, -50%);
-        background-size: cover;
-      }
-
-      /* Overlay for darkened effect */
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
         height: 100%;
-        background-color: rgba(
-          0,
-          0,
-          0,
-          0.5
-        ); /* Dark overlay to make text readable */
       }
+    }
+  </style>
+  <link rel="stylesheet" href="title_styling.css">
+</head>
+<body>
 
-      /* Center the login card */
-      .login-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        max-width: 90%; /* Allow for responsiveness */
-        width: 400px; /* Base width for larger screens */
-      }
+  <!-- Header -->
+  <header>
+    <h1 class="site-title">ReviseKarle</h1>
+  </header>
 
-      .login-card {
-        background: rgba(255, 255, 255, 0.85);
-        border-radius: 10px;
-        padding: 2rem;
-        text-align: center;
-      }
+  <!-- Video Background Section -->
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="login-page-video-mobile.mp4" type="video/mp4" media="(max-width: 375px)">
+      <source src="login-page-video-tablet.mp4" type="video/mp4" media="(min-width: 376px) and (max-width: 992px)">
+      <source src="login-page-video-desktop.mp4" type="video/mp4" media="(min-width: 993px)">
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay"></div>
+  </div>
 
-      .btn-login {
-        margin: 0.5rem 0;
-        width: 100%;
-        font-size: 1.1rem;
-      }
-
-      /* Header and Footer Styling */
-      header {
-        position: relative;
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        text-align: center;
-        padding: 1rem;
-        z-index: 3;
-      }
-
-      footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        text-align: center;
-        padding: 0.5rem;
-        z-index: 3;
-      }
-
-      /* Mobile responsiveness */
-      @media (max-width: 768px) {
-        .video-container {
-          height: 100%;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Header -->
-    <header>
-      <h1>ReviseKarle</h1>
-    </header>
-
-    <!-- Video Background Section -->
-    <div class="video-container">
-      <video autoplay muted loop>
-        <!-- Mobile Video (480p) -->
-        <source
-          src="login-page-video-mobile.mp4"
-          type="video/mp4"
-          media="(max-width: 375px)"
-        />
-
-        <!-- Tablet Video (720p) -->
-        <source
-          src="login-page-video-tablet.mp4"
-          type="video/mp4"
-          media="(min-width: 376px) and (max-width: 992px)"
-        />
-
-        <!-- Desktop Video (1080p) -->
-        <source
-          src="login-page-video-desktop.mp4"
-          type="video/mp4"
-          media="(min-width: 993px)"
-        />
-
-        Your browser does not support HTML5 video.
-      </video>
-      <div class="overlay"></div>
-    </div>
-
+  <!-- Login Form Section -->
     <!-- Login Form Section -->
     <div class="login-container">
       <div class="login-card shadow">
@@ -169,18 +221,66 @@
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2024 ReviseKarle. All rights reserved.</p>
-    </footer>
+  <!-- Blog Cards Section -->
+  
+  <div class="blog-cards-container">
+  <div class="blog-card" id="card1">
+    <strong>Mastering RESTful APIs</strong>
+    <p>Best practices for scalable APIs.</p>
+  </div>
+  <div class="blog-card" id="card2">
+    <strong>Introduction to GraphQL</strong>
+    <p>Flexible data fetching with GraphQL.</p>
+  </div>
+  <div class="blog-card" id="card3">
+    <strong>Asynchronous Programming in Node.js</strong>
+    <p>Understanding async with Node.js.</p>
+  </div>
+  <div class="blog-card" id="card4">
+    <strong>Understanding Microservices Architecture</strong>
+    <p>Breaking monoliths into microservices.</p>
+  </div>
+  <div class="blog-card" id="card5">
+    <strong>Securing Your Backend with JWT</strong>
+    <p>Using JWT for secure authentication.</p>
+  </div>
+  <div class="blog-card" id="card6">
+    <strong>Database Optimization Techniques</strong>
+    <p>Improve performance with indexing.</p>
+  </div>
+  <div class="blog-card" id="card7">
+    <strong>Scaling with Docker and Kubernetes</strong>
+    <p>Containerizing apps for easy scaling.</p>
+  </div>
+  <div class="blog-card" id="card8">
+    <strong>Event-Driven Architecture Explained</strong>
+    <p>Using events to build scalable systems.</p>
+  </div>
+</div>
 
-    <!-- Bootstrap JS, Font Awesome for Icons -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 ReviseKarle. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const cards = document.querySelectorAll('.blog-card');
+
+    function positionCards() {
+      cards.forEach(card => {
+        const x = Math.random() * (window.innerWidth - 150); // Adjust based on card width
+        const y = Math.random() * (window.innerHeight - 100); // Adjust based on card height
+        card.style.left = `${x}px`;
+        card.style.top = `${y}px`;
+      });
+    }
+
+    // Position cards on load
+    positionCards();
+
+    // Optional: Reposition cards every 5 seconds
+    //setInterval(positionCards, 5000);
+  </script>
+</body>
 </html>
